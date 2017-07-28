@@ -35,7 +35,7 @@ function setHiddenFields(){
 		secretNumber = "0" + secretNumber;
 	}
 	attempt.innerHTML = 0;
-	answer.innerHTML = secretNumber;
+	answer.value = secretNumber;
 }
 
 function setMessage(newMessage){
@@ -54,10 +54,10 @@ function getResults(userGuess){
 	var icons = '<div class="col-md-6">';
 	var guessedCorrect = 0;
 	for(var i = 0; i < 4; i++){
-		if(userGuess[i] === answer.innerText[i]){
+		if(userGuess[i] === answer.value[i]){
 			guessedCorrect++;
 			icons += '<span class="glyphicon glyphicon-ok"></span>';
-		}else if(answer.innerText.includes(userGuess[i])){
+		}else if(answer.value.includes(userGuess[i])){
 			icons += '<span class="glyphicon glyphicon-transfer"></span>';
 		}else{
 			icons += '<span class="glyphicon glyphicon-remove"></span>';
@@ -73,7 +73,7 @@ function getResults(userGuess){
 };
 
 function showAnswer(win){
-	code.innerHTML = answer.innerText;
+	code.innerHTML = answer.value;
 	if(win){
 		code.className += " success";
 	}else{
