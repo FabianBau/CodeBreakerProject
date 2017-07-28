@@ -6,7 +6,7 @@ let code = document.getElementById('code');
 function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
-    if(answer.value === '' && attempt.innerText === ''){
+    if(answer.value === '' && attempt.value === ''){
     setHiddenFields();
   	}
 
@@ -14,13 +14,13 @@ function guess() {
   		setMessage("Guesses must be exactly 4 characters long.");
 		return false;
   	}else{
-  		attempt.innerHTML = parseInt(attempt.innerText) + 1;
+  		attempt.value = parseInt(attempt.value) + 1;
   	}
   	if(getResults(input.value)){
   		setMessage("You Win! :)");
   		showAnswer(true);
   		showReplay();
-  	}else if(parseInt(attempt.innerText) >= 10){
+  	}else if(parseInt(attempt.value) >= 10){
   		setMessage("You Lose! :(");
   			showAnswer(false);
   			showReplay();
@@ -35,7 +35,7 @@ function setHiddenFields(){
 	while(secretNumber.length < 4){
 		secretNumber = "0" + secretNumber;
 	}
-	attempt.innerHTML = 0;
+	attempt.value = 0;
 	answer.value = secretNumber;
 }
 
