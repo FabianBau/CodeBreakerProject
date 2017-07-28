@@ -11,8 +11,8 @@ function guess() {
   	}
 
   	if(!validateInput(input.value)){
-  		return false;
-		setMessage("Guesses must be exactly 4 characters long.");
+  		setMessage("Guesses must be exactly 4 characters long.");
+		return false;
   	}else{
   		attempt.innerHTML = parseInt(attempt.innerText) + 1;
   	}
